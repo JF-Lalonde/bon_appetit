@@ -52,7 +52,6 @@ class PantryTest < Minitest::Test
     "Cheese"         => {quantity: 75, units: "Universal Units"},
     "Flour"          => {quantity: 5, units: "Centi-Units"}}
 
-    require 'pry'; binding.pry
     assert_equal expected, actual
   end
 end

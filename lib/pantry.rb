@@ -22,5 +22,12 @@ class Pantry
     @stock[item] = quantity(amount)
   end
 
+  def convert_units(recipe)
+    recipe.ingredients.keys.map do |name|
+      if ingredients[name] > 100 "Centi-Units"
+      elsif ingredients[name] < 1 "Milli-Units"
+      else
+        amount units = "Universal Units"
+  end
 
 end

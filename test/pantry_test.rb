@@ -40,5 +40,19 @@ class PantryTest < Minitest::Test
     assert_equal 30, actual
   end
 
-  
+  def test_unit_conversion
+    r = Recipe.new("Spicy Cheese Pizza")
+    r.add_ingredient("Cayenne Pepper", 0.025)
+    r.add_ingredient("Cheese", 75)
+    r.add_ingredient("Flour", 500)
+
+    pantry = Pantry.new
+    actual = pantry.convert_units(r)
+    expected = {"Cayenne Pepper" => {quantity: 25, units: "Milli-Units"},
+    "Cheese"         => {quantity: 75, units: "Universal Units"},
+    "Flour"          => {quantity: 5, units: "Centi-Units"}}
+
+    require 'pry'; binding.pry
+    assert_equal expected, actual
+  end
 end
